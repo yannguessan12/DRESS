@@ -1,0 +1,6 @@
+{
+  "appId": "com.dressa.app",
+  "appName": "Dressa",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}
