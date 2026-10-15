@@ -32,6 +32,13 @@ jobs:
       - name: Installer les dépendances
         run: npm install
 
+      - name: Embarquer Supabase dans l'app
+        run: |
+          npm install --no-save @supabase/supabase-js@2
+          cp node_modules/@supabase/supabase-js/dist/umd/supabase.js www/supabase.js
+          sed -i 's#https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js#supabase.js#' www/index.html
+          grep -c 'src="supabase.js"' www/index.html
+
       - name: Créer le projet Android
         run: npx cap add android
 
